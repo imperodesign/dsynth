@@ -1,0 +1,233 @@
+@import url(https://fonts.googleapis.com/css?family=Yellowtail);
+@import url(https://fonts.googleapis.com/css?family=Black+Ops+One);
+@import url(https://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
+
+html {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,207cca+73,207cca+73,207cca+74,207cca+77,28f5fc+81,28f5fc+81,207cca+82,2989d8+84,2989d8+84,d200f7+94 */
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+68,207cca+75,28f5fc+81,28f5fc+81,d200f7+91,000000+95,000000+95 */
+  background: #000000;
+  /* Old browsers */
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(68%, #000000), color-stop(75%, #207cca), color-stop(81%, #28f5fc), color-stop(81%, #28f5fc), color-stop(91%, #d200f7), color-stop(95%, #000000), color-stop(95%, #000000));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #000000 68%, #207cca 75%, #28f5fc 81%, #28f5fc 81%, #d200f7 91%, #000000 95%, #000000 95%);
+  /* Chrome10+,Safari5.1+ */
+  /* Opera 11.10+ */
+  /* IE10+ */
+  background: -webkit-linear-gradient(315deg, #000000 68%, #207cca 75%, #28f5fc 81%, #28f5fc 81%, yellow 91%, #000000 95%, #000000 95%);
+  background: linear-gradient(135deg, #000000 68%, #207cca 75%, #28f5fc 81%, #28f5fc 81%, yellow 91%, #000000 95%, #000000 95%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: -webkit-repeating-linear-gradient(103deg, #990073, rgba(255, 255, 255, 0.7) 1px, yellow 2px, transparent 6px, transparent 150px);
+  background: repeating-linear-gradient(-13deg, #990073, rgba(255, 255, 255, 0.7) 1px, yellow 2px, transparent 6px, transparent 150px);
+  margin: 0;
+}
+
+.grid {
+  width: 100%;
+  height: 100%;
+  background: -webkit-repeating-linear-gradient(45deg, #66004d, rgba(255, 255, 255, 0.7) 1px, yellow 2px, transparent 6px, transparent 150px);
+  background: repeating-linear-gradient(45deg, #66004d, rgba(255, 255, 255, 0.7) 1px, yellow 2px, transparent 6px, transparent 150px);
+}
+
+.container {
+  position: relative;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.container h1 {
+  font-family: 'Black Ops One', cursive;
+  color: yellow;
+  font-size: 150px;
+  text-shadow: 5px 3px 0px #FF33CC;
+  margin: 0;
+  -webkit-transform: rotate(-13deg);
+          transform: rotate(-13deg);
+  position: absolute;
+  text-align: center;
+}
+
+.container h2 {
+  font-family: 'Nothing You Could Do', cursive;
+  color: #FF33CC;
+  font-size: 99px;
+  margin: -40px;
+  text-shadow: 3px 3px 0px #7A00F4;
+  position: absolute;
+  text-align: center;
+}
+
+.circle {
+  background: -webkit-radial-gradient(circle closest-corner at 50% 50%, rgba(155, 0, 125, 0.1) 30%, yellow 100%);
+  background: radial-gradient(circle closest-corner at 50% 50%, rgba(155, 0, 125, 0.1) 30%, yellow 100%);
+  border-radius: 75px;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  position: absolute;
+  right: -100px;
+  top: 100px;
+  z-index: 1;
+}
+
+/* Synth */
+
+.key-wrapper {
+  position: absolute;
+  top: calc(50% - 17vmin);
+  left:  calc(50% - 58vmin);
+}
+
+.key-wrapper h1 {
+  font-family: 'Nothing You Could Do', cursive;
+  color: cyan;
+  text-shadow: 3px 3px 0px #7A00F4;
+  padding: 0;
+  margin-bottom: 0vmin;
+  font-size: 6vmin;
+  text-align: center;
+
+}
+.key-wrapper h2 {
+  font-family: 'Nothing You Could Do', cursive;
+  color: #FF33CC;
+  text-shadow: 3px 3px 0px #7A00F4;
+  margin-bottom: 2vmin;
+  font-size: 3vmin;
+  text-align: center;
+}
+.key-wrapper a {
+  color: rgb(100, 100, 100);
+  text-decoration: none;
+}
+.key-wrapper a, .key-wrapper span {
+  cursor: pointer;
+  border-bottom: 0.25vmin dotted rgb(255, 255, 255);
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  transition: .5s;
+}
+.key-wrapper a:hover, .key-wrapper span:hover {
+  color: rgb(255, 255, 255);
+  border-bottom: 0.25vmin dotted rgb(75, 75, 75);
+}
+
+ul {
+  text-align: center;
+  white-space : nowrap;
+}
+
+ul.hidden {
+  visibility: hidden;
+}
+
+li {
+  font-family: 'Yellowtail';
+  display: inline-block;
+  margin: -0.5vmin 0.75vmin;
+  width: 5vmin;
+  height: 5vmin;
+  padding: 1vmin;
+  border: 0.25vmin solid rgb(255, 75, 75);
+  color: rgb(255, 75, 75);
+  border-radius: 1vmin;
+  line-height: 5vmin;
+  text-align: center;
+  text-transform: uppercase;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  transition: .5s;
+}
+.key-wrapper ul > li:hover {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
+[data-code="32"] /*SPACEBAR*/ {
+  width: 40vmin;
+}
+.active {
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -ms-transition: 0s;
+  transition: 0s;
+  transform: scale(1.15);
+}
+.drum {
+  border-color: rgb(0, 255, 100);
+  color: rgb(0, 255, 100);
+} .drum.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(0, 255, 100);
+}
+.pad {
+  border-color: rgb(255, 225, 0);
+  color: rgb(255, 225, 0);
+} .pad.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(255, 225, 0);
+}
+.loop {
+  border-color: rgb(255, 100, 0);
+  color: rgb(255, 100, 0);
+} .loop.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(255, 100, 0);
+}
+.bass {
+  border-color: rgb(255, 0, 75);
+  color: rgb(255, 0, 75);
+} .bass.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(255, 0, 75);
+}
+.synth {
+  border-color: rgb(150, 0, 255);
+  color: rgb(150, 0, 255);
+} .synth.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(150, 0, 255);
+}
+.voice {
+  border-color: rgb(255, 75, 75);
+  color: rgb(255, 75, 75);
+} .voice.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(255, 75, 75);
+}
+
+.guitar {
+  border-color: rgb(20, 150, 150);
+  color: rgb(20, 150, 150);
+} .guitar.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(20, 150, 150);
+}
+
+.effect {
+  border-color: rgb(0, 150, 255);
+  color: rgb(0, 150, 255);
+} .effect.active {
+  color: rgb(75, 75, 75);
+  background-color: rgb(0, 150, 255);
+}

@@ -1,0 +1,183 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-image: -webkit-linear-gradient(cyan, cyan, blue);
+  background-image: linear-gradient(cyan, cyan, blue);
+  background-position: fixed;
+  text-align: center;
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+  display: none;
+}
+
+#player {
+  overflow: hidden;
+  width: 480px;
+  height: 62px;
+  margin: 0 auto;
+}
+
+#make-noise {
+  display: block;
+  font-family: 'Black Ops One';
+  position: absolute;
+  z-index: 9999;
+  top: 55%;
+  width: 100%;
+  color: blue;
+  font-size: 3em;
+  text-shadow: 3px 3px 0px #7A00F4;
+  text-decoration: none;
+  animation: wiggle 1s ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.1s;
+}
+
+#inner {
+  font-family: 'Yellowtail', cursive;
+  position: absolute;
+  z-index: 9999;
+  top: 20%;
+  width: 100%;
+  -webkit-transform: rotate(-20deg) translate(-50px, -50%);
+          transform: rotate(-20deg) translate(-50px, -50%);
+}
+
+#name, .clone {
+  color: white;
+  font-size: 9em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  line-height: 1;
+}
+
+#name {
+  color: white;
+  z-index: 400;
+  text-shadow: 0 0 30px white;
+  cursor: pointer;
+  /*animation: wiggle 1s ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.1s;*/
+}
+
+#clones .clone:nth-child(1) {
+  color: #00eeff;
+  top: 5px;
+  z-index: 299;
+  -webkit-animation: wiggle 1s ease-in-out;
+          animation: wiggle 1s ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+#clones .clone:nth-child(2) {
+  color: #00ddff;
+  top: 10px;
+  z-index: 298;
+  -webkit-animation: wiggle 1s ease-in-out;
+          animation: wiggle 1s ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+#clones .clone:nth-child(3) {
+  color: #00ccff;
+  top: 15px;
+  z-index: 297;
+  -webkit-animation: wiggle 1s ease-in-out;
+          animation: wiggle 1s ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+#clones .clone:nth-child(4) {
+  color: #00bbff;
+  top: 20px;
+  z-index: 296;
+  -webkit-animation: wiggle 1s ease-in-out;
+          animation: wiggle 1s ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+#clones .clone:nth-child(5) {
+  color: #00aaff;
+  top: 25px;
+  z-index: 295;
+  -webkit-animation: wiggle 1s ease-in-out;
+          animation: wiggle 1s ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: translateX(-6px);
+            transform: translateX(-6px);
+  }
+  100% {
+    -webkit-transform: translateX(6px);
+            transform: translateX(6px);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    -webkit-transform: translateX(-6px);
+            transform: translateX(-6px);
+  }
+  100% {
+    -webkit-transform: translateX(6px);
+            transform: translateX(6px);
+  }
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  padding-bottom: 10px;
+}
+footer a {
+  font-family: 'Yellowtail';
+  color: yellow;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.skyline {
+  background-image: repeat-x;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.skyline.para {
+  opacity: 0.6;
+  bottom: 20px;
+}

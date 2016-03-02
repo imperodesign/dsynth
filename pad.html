@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>D::Synth</title>
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Yellowtail'>
+    <link rel='stylesheet' href='pad.css'>
+
+  </head>
+
+  <body>
+    <div class="grid">
+      <div class="container">
+        <h1>Glory</h1>
+        <h2>Fame &</h2>
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="key-wrapper" style="display">
+      <h2>Play <span>stuff</span> with your friends.</h2>
+
+      <h1>Loading the pad... Be ready!</h1>
+
+      <ul class="hidden">
+        <li class="bass" data-key="1" data-code="49" data-source="0">1</li>
+        <li class="bass" data-key="2" data-code="50" data-source="1">2</li>
+        <li class="bass" data-key="3" data-code="51" data-source="2">3</li>
+        <li class="guitar" data-key="4" data-code="52" data-source="12">4</li>
+        <li class="guitar" data-key="5" data-code="53" data-source="13">5</li>
+        <li class="voice" data-key="6" data-code="54" data-source="25">a♩</li>
+        <li class="voice" data-key="7" data-code="55" data-source="26">b♩</li>
+        <li class="voice" data-key="8" data-code="56" data-source="27">c♩</li>
+        <li class="voice" data-key="9" data-code="57" data-source="28">d♩</li>
+        <li class="voice" data-key="0" data-code="48" data-source="29">e♩</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="drum" data-key="q" data-code="81" data-source="3">q</li>
+        <li class="drum" data-key="w" data-code="87" data-source="4">w</li>
+        <li class="drum" data-key="e" data-code="69" data-source="5">e</li>
+        <li class="drum" data-key="r" data-code="82" data-source="6">r</li>
+        <li class="synth" data-key="t" data-code="84" data-source="14">t</li>
+        <li class="synth" data-key="y" data-code="89" data-source="15">y</li>
+        <li class="synth" data-key="u" data-code="85" data-source="16">u</li>
+        <li class="synth" data-key="i" data-code="73" data-source="17">i</li>
+        <li class="synth" data-key="o" data-code="79" data-source="18">o</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="drum" data-key="a" data-code="65" data-source="7">a</li>
+        <li class="drum" data-key="s" data-code="83" data-source="8">s</li>
+        <li class="drum" data-key="d" data-code="68" data-source="9">d</li>
+        <li class="drum" data-key="f" data-code="70" data-source="19">f</li>
+        <li class="synth" data-key="g" data-code="71" data-source="20">g</li>
+        <li class="synth" data-key="h" data-code="72" data-source="21">h</li>
+        <li class="synth" data-key="j" data-code="74" data-source="22">j</li>
+        <li class="synth" data-key="k" data-code="75" data-source="23">k</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="pad" data-key="z" data-code="90" data-source="30">z</li>
+        <li class="pad" data-key="x" data-code="88" data-source="31" >x</li>
+        <li class="pad" data-key="c" data-code="67"data-source="32">c</li>
+        <li class="loop" data-key="v" data-code="86" data-source="33">v</li>
+        <li class="loop" data-key="b" data-code="66" data-source="34">b</li>
+        <li class="synth" data-key="n" data-code="78" data-source="24">n</li>
+        <li class="synth" data-key="m" data-code="77" data-source="25">m</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="effect" data-key="SPACE" data-code="32" data-source="11">SPACE</li>
+      </ul>
+
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='audio.umd.js'></script>
+    <script src="pad.js"></script>
+  </body>
+</html>
