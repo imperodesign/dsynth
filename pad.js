@@ -69,7 +69,7 @@ loadSamples(sampleURLS)
     $('.key-wrapper h1').hide()
     $('ul.hidden').removeClass('hidden')
 
-    socket = io.connect('http://10.0.103.84:3007')
+    socket = io.connect('http://dsynth.prd.impero.me')
 
     socket.on('SERVER:PLAY', function (data) {
       console.log('SERVER:PLAY', data)
