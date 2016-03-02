@@ -1,5 +1,9 @@
-// Detect Key Events
-// $(window).on("keydown", function(event){
+// pad.js
+
+var socket = null
+var samples = null
+var sources = []
+var activeSources = {}
 
 var sampleURLS = [
   './media/bass-1.mp3',
@@ -37,7 +41,7 @@ var sampleURLS = [
   './media/x-daft-3.wav',
   './media/x-shit-1.wav',
   './index.wav'
-];
+]
 
 var audioContext = window.wavesAudio.audioContext;
 
@@ -55,79 +59,136 @@ function loadSample (url) {
         audioContext.decodeAudioData(buffer, function (decodedAudioData) {
           resolve(decodedAudioData);
         })
-      });
+      })
     })
 }
-
-var samples = null
-var sources = []
 
 loadSamples(sampleURLS)
   .then(function (s) {
     samples = s
     $('.key-wrapper h1').hide()
     $('ul.hidden').removeClass('hidden')
+
+    socket = io.connect('http://10.0.103.84:3007')
+
+    socket.on('SERVER:PLAY', function (data) {
+      console.log('SERVER:PLAY', data)
+      $("li[data-source='"+data.source+"']").addClass('active')
+
+      activeSources[data.source] = { input: 'SOCKET' }
+
+      startSound(data.source)
+    })
+
+    socket.on('SERVER:STOP', function (data) {
+      console.log('SERVER:STOP', data)
+      $("li[data-source='"+data.source+"']").removeClass('active')
+
+      delete activeSources[data.source]
+
+      stopSound(data.source)
+    })
+
   })
 
-var fired = {};
+var fired = {}
 
 $(window).keydown(function(event) {
-  var code = (event.keyCode ? event.keyCode : event.which);
-  // if(osc[code])
-  //   return;
-
+  var code = (event.keyCode ? event.keyCode : event.which)
   if (fired[code] === true) return
-
   fired[code] = true
 
-  $("li[data-code='"+code+"']").addClass("active")
-  var key = $("li[data-code='"+code+"']").data("key");
-  var code = $("li[data-code='"+code+"']").data("code");
-  //console.log("KEYON:" + key + "/" + code + "@" + event.timeStamp);
-  startSound($("li[data-code='"+code+"']").data("source"));
-  $("li[data-code='"+code+"']").addClass("active")
-  // $(this).off(event);
-});
+  var $el = $("li[data-code='"+code+"']")
+  var _source = $el.data('source')
+
+  if (activeSources[_source] && activeSources[_source].input === 'SOCKET') return
+
+  // if (activeSources[_source]) return
+  // activeSources[_source] = { input: 'KEYBOARD' }
+
+  console.log('CLIENT:PLAY', {source: _source})
+  socket.emit('CLIENT:PLAY', {source: _source})
+
+  $el.addClass('active')
+  startSound(_source)
+  $el.addClass('active')
+})
 
 $(window).keyup(function(event) {
-  var code = (event.keyCode ? event.keyCode : event.which);
-
+  var code = (event.keyCode ? event.keyCode : event.which)
   fired[code] = false
 
-  $("li[data-code='"+code+"']").removeClass("active")
-  var key = $("li[data-code='"+code+"']").data("key");
-  var code = $("li[data-code='"+code+"']").data("code");
-  //console.log("KEYOFF:" + key + "/" + code + "@" + event.timeStamp);
-  // if(!osc[code])
-  //   return;
-  stopSound($("li[data-code='"+code+"']").data("source"));
-  $("li[data-code='"+code+"']").removeClass("active")
-});
+  var $el = $("li[data-code='"+code+"']")
+  var _source = $el.data('source')
 
+  if (activeSources[_source] && activeSources[_source].input === 'SOCKET') return
 
+  // if (activeSources[_source]) {
+  //   if (activeSources[_source].input === 'SOCKET') {
+  //     return
+  //   } else {
+  //     delete activeSources[_source]
+  //   }
+  // }
+
+  console.log('CLIENT:STOP', {source: _source})
+  socket.emit('CLIENT:STOP', {source: _source})
+
+  $el.removeClass('active')
+  stopSound(_source)
+  $el.removeClass('active')
+})
 
 // Detect Mouse Events
-$("li").mousedown(function(event) {
-  $(this).addClass("active");
-  var key = $(this).data("key");
-  var code = $(this).data("code");
-  //console.log("MOUSEON:" + key + "/" + code + "@" + event.timeStamp);
-  startSound($(this).data("source"));
-  $(this).addClass("active")
-});
+$('li').mousedown(function(event) {
 
-$("li").mouseup(function(event) {
-  $(this).removeClass("active");
-  var key = $(this).data("key");
-  var code = $(this).data("code");
-  //console.log("MOUSEOFF:" + key + "/" + code + "@" + event.timeStamp);
-  stopSound($(this).data("source"));
-  $(this).removeClass("active")
-});
+  var _source = $(this).data('source')
+
+  if (activeSources[_source] && activeSources[_source].input === 'SOCKET') return
+
+  // if (activeSources[_source]) return
+  // activeSources[_source] = { input: 'MOUSE' }
+
+  $(this).addClass('active')
+
+
+  console.log('CLIENT:PLAY', {source: _source})
+  socket.emit('CLIENT:PLAY', {source: _source})
+
+  startSound(_source)
+  $(this).addClass('active')
+})
+
+$('li').mouseup(function(event) {
+  var _source = $(this).data('source')
+
+  if (activeSources[_source] && activeSources[_source].input === 'SOCKET') return
+
+  // if (activeSources[_source]) {
+  //   if (activeSources[_source].input === 'SOCKET') {
+  //     return
+  //   } else {
+  //     delete activeSources[_source]
+  //   }
+  // }
+
+  $(this).removeClass('active')
+
+  console.log('CLIENT:STOP', {source: _source})
+  socket.emit('CLIENT:STOP', {source: _source})
+
+  stopSound(_source)
+  $(this).removeClass('active')
+})
 
 // Synthesis
 function startSound(index) {
   if (samples === null) return
+
+  // Just in case something nasty happen
+  if (sources[index]) {
+    stopSound(index)
+  }
 
   var source = audioContext.createBufferSource()
   sources[index] = source
@@ -145,3 +206,7 @@ function stopSound(index) {
   sources[index].stop()
   delete sources[index]
 }
+
+setInterval(function () {
+  console.log(activeSources)
+}, 2000)

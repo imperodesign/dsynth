@@ -1,0 +1,28 @@
+{
+  "name": "dsynth",
+  "version": "1.0.0",
+  "description": "Distributed web synthesizer using WebAudio API and WebSockets.",
+  "main": "./server/index.js",
+  "scripts": {
+    "start": "node ./server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imperodesign/dsynth.git"
+  },
+  "keywords": [
+    "synth",
+    "webaudioapi"
+  ],
+  "author": "Jacopo Daeli <jacopo.daeli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imperodesign/dsynth/issues"
+  },
+  "homepage": "https://github.com/imperodesign/dsynth#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}
