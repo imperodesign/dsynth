@@ -122,7 +122,8 @@ function startSound(index) {
 
 function stopSound(index) {
   if (samples === null) return
-
+  if (!sources[index]) return
+  
   sources[index].stop()
   delete sources[index]
 }
