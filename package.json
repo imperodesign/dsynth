@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imperodesign/dsynth.git"
+    "url": "git+https://github.com/JacopoDaeli/dsynth.git"
   },
   "keywords": [
     "synth",
@@ -18,9 +18,9 @@
   "author": "Jacopo Daeli <jacopo.daeli@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imperodesign/dsynth/issues"
+    "url": "https://github.com/JacopoDaeli/dsynth/issues"
   },
-  "homepage": "https://github.com/imperodesign/dsynth#readme",
+  "homepage": "https://github.com/JacopoDaeli/dsynth#readme",
   "dependencies": {
     "express": "^4.13.4",
     "hashmap": "^2.0.4",
