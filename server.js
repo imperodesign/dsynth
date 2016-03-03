@@ -32,7 +32,7 @@ io.on('connection', socket => {
 
   socket.on('CLIENT:PLAY', data => {
     console.log('CLIENT:PLAY', data)
-    if(!data || !data.source) return
+    if(!data || data.source === undefined) return
     const source = data.source
 
     if (globalActiveSources.get(source)) return
@@ -48,7 +48,7 @@ io.on('connection', socket => {
 
   socket.on('CLIENT:STOP', data => {
     console.log('CLIENT:STOP', data)
-    if(!data || !data.source) return
+    if(!data || data.source === undefined) return
     const source = data.source
 
     if (!globalActiveSources.get(source)) return

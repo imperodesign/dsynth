@@ -74,7 +74,7 @@ $(window).keydown(function(event) {
 
   var $el = $("li[data-code='"+code+"']")
   var _source = $el.data('source')
-  if (!_source) return
+  if (_source === undefined) return
   console.log('CLIENT:PLAY', {source: _source})
   socket.emit('CLIENT:PLAY', {source: _source})
 })
@@ -85,7 +85,7 @@ $(window).keyup(function(event) {
 
   var $el = $("li[data-code='"+code+"']")
   var _source = $el.data('source')
-  if (!_source) return
+  if (_source === undefined) return
   console.log('CLIENT:STOP', {source: _source})
   socket.emit('CLIENT:STOP', {source: _source})
 })
@@ -93,14 +93,14 @@ $(window).keyup(function(event) {
 // Detect Mouse Events
 $('li').mousedown(function(event) {
   var _source = $(this).data('source')
-  if (!_source) return
+  if (_source === undefined) return
   console.log('CLIENT:PLAY', {source: _source})
   socket.emit('CLIENT:PLAY', {source: _source})
 })
 
 $('li').mouseup(function(event) {
   var _source = $(this).data('source')
-  if (!_source) return
+  if (_source === undefined) return
   console.log('CLIENT:STOP', {source: _source})
   socket.emit('CLIENT:STOP', {source: _source})
 })
