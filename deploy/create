@@ -1,0 +1,48 @@
+#!/bin/bash
+
+export APP_NAME=dsynth
+
+if [ "$APP_NAME" = "" ]; then
+  echo "APP_NAME must be set."
+  exit;
+fi
+
+# Eventually logout from a controller
+echo "LOGOUT"
+deis logout
+
+./login $1
+
+if [ "$1" = "prd" ]; then
+  # Create app in production
+  echo "[PRD] CREATE"
+  deis apps:create $APP_NAME --no-remote
+
+  # Add git remote in production
+  echo "[PRD] ADD GIT REMOTE"
+  git remote add deis-prd ssh://git@deis.$DEIS_PRD_URL:2222/$APP_NAME.git
+
+  # Setup env vars in production
+  echo "[PRD] SET ENV VARS"
+  echo "Missing implementation... Skip."
+
+  # Logout from prd controller
+  echo "[PRD] LOGOUT"
+  deis logout
+else
+  # Create app in production
+  echo "[STG] CREATE"
+  deis apps:create $APP_NAME --no-remote
+
+  # Add git remote in production
+  echo "[STG] ADD GIT REMOTE"
+  git remote add deis-stg ssh://git@deis.$DEIS_STG_URL:2222/$APP_NAME.git
+
+  # Setup env vars in production
+  echo "[STG] SET ENV VARS"
+  echo "Missing implementation... Skip."
+
+  # Logout from stg controller
+  echo "[STG] LOGOUT"
+  deis logout
+fi
