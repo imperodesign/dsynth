@@ -103,8 +103,8 @@ $(document).ready(function () {
     player.play();
   }
 
-  player.src = './index.wav';
+  player.src = '/public/index.wav';
   player.loop = true
 })
 
-console.log('Created by Jacopo Daeli. Built with love within IMPERO.')
+console.log('Craft with love by Jacopo Daeli within Impero.')

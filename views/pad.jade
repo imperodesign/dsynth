@@ -1,0 +1,69 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Impero Synth
+    link(rel='icon', href='/public/favicon.ico', type='image/png')
+    link(rel='stylesheet prefetch', href='http://fonts.googleapis.com/css?family=Yellowtail')
+    link(rel='stylesheet', href='/public/pad.css')
+  body
+    .grid
+      .container
+        h1 Glory
+        h2 Fame &
+        .circle
+    .key-wrapper(style='display')
+      h2
+        | Play 
+        span stuff
+        |  with your friends.
+      h1 Loading the pad... Be ready!
+      ul.hidden
+        li.bass(data-code='49', data-source='0') 1
+        li.bass(data-code='50', data-source='1') 2
+        li.bass(data-code='51', data-source='2') 3
+        li.guitar(data-code='52', data-source='12') 4
+        li.guitar(data-code='53', data-source='13') 5
+        li.voice(data-code='54', data-source='25') a♩
+        li.voice(data-code='55', data-source='26') b♩
+        li.voice(data-code='56', data-source='27') c♩
+        li.voice(data-code='57', data-source='28') d♩
+        li.voice(data-code='48', data-source='29') e♩
+      ul.hidden
+        li.drum(data-code='81', data-source='3') q
+        li.drum(data-code='87', data-source='4') w
+        li.drum(data-code='69', data-source='5') e
+        li.drum(data-code='82', data-source='6') r
+        li.synth(data-code='84', data-source='14') t
+        li.synth(data-code='89', data-source='15') y
+        li.synth(data-code='85', data-source='16') u
+        li.synth(data-code='73', data-source='17') i
+        li.synth(data-code='79', data-source='18') o
+      ul.hidden
+        li.drum(data-code='65', data-source='7') a
+        li.drum(data-code='83', data-source='8') s
+        li.drum(data-code='68', data-source='9') d
+        li.drum(data-code='70', data-source='19') f
+        li.synth(data-code='71', data-source='20') g
+        li.synth(data-code='72', data-source='21') h
+        li.synth(data-code='74', data-source='22') j
+        li.synth(data-code='75', data-source='23') k
+      ul.hidden
+        li.pad(data-code='90', data-source='30') z
+        li.pad(data-code='88', data-source='31') x
+        li.pad(data-code='67', data-source='32') c
+        li.loop(data-code='86', data-source='33') v
+        li.loop(data-code='66', data-source='34') b
+        li.synth(data-code='78', data-source='24') n
+        li.synth(data-code='77', data-source='25') m
+      ul.hidden
+        li.effect(data-key='SPACE', data-code='32', data-source='11') SPACE
+    footer
+      a(href='http://www.weareimpero.com', target='_blank') WE ARE IMPERO
+    script.
+      window.websocketsURL = '#{websocketsURL}'
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+    script(src='/public/audio.umd.js')
+    script(src='/public/sample-urls.js')
+    script(src='/public/pad.js')

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>D::Synth</title>
+    <link rel="icon" href="http://www.amnesia.es/assets/images/favicon.ico" type="image/x-icon">
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Yellowtail'>
+    <link rel='stylesheet' href='pad.css'>
+
+  </head>
+
+  <body>
+    <div class="grid">
+      <div class="container">
+        <h1>Glory</h1>
+        <h2>Fame &</h2>
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="key-wrapper" style="display">
+      <h2>Play <span>stuff</span> with your friends.</h2>
+
+      <h1>Loading the pad... Be ready!</h1>
+
+      <ul class="hidden">
+        <li class="bass" data-code="49" data-source="0">1</li>
+        <li class="bass" data-code="50" data-source="1">2</li>
+        <li class="bass" data-code="51" data-source="2">3</li>
+        <li class="guitar" data-code="52" data-source="12">4</li>
+        <li class="guitar" data-code="53" data-source="13">5</li>
+        <li class="voice" data-code="54" data-source="25">a♩</li>
+        <li class="voice" data-code="55" data-source="26">b♩</li>
+        <li class="voice" data-code="56" data-source="27">c♩</li>
+        <li class="voice" data-code="57" data-source="28">d♩</li>
+        <li class="voice" data-code="48" data-source="29">e♩</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="drum" data-code="81" data-source="3">q</li>
+        <li class="drum" data-code="87" data-source="4">w</li>
+        <li class="drum" data-code="69" data-source="5">e</li>
+        <li class="drum" data-code="82" data-source="6">r</li>
+        <li class="synth" data-code="84" data-source="14">t</li>
+        <li class="synth" data-code="89" data-source="15">y</li>
+        <li class="synth" data-code="85" data-source="16">u</li>
+        <li class="synth" data-code="73" data-source="17">i</li>
+        <li class="synth" data-code="79" data-source="18">o</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="drum" data-code="65" data-source="7">a</li>
+        <li class="drum" data-code="83" data-source="8">s</li>
+        <li class="drum" data-code="68" data-source="9">d</li>
+        <li class="drum" data-code="70" data-source="19">f</li>
+        <li class="synth" data-code="71" data-source="20">g</li>
+        <li class="synth" data-code="72" data-source="21">h</li>
+        <li class="synth" data-code="74" data-source="22">j</li>
+        <li class="synth" data-code="75" data-source="23">k</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="pad" data-code="90" data-source="30">z</li>
+        <li class="pad" data-code="88" data-source="31" >x</li>
+        <li class="pad" data-code="67"data-source="32">c</li>
+        <li class="loop" data-code="86" data-source="33">v</li>
+        <li class="loop" data-code="66" data-source="34">b</li>
+        <li class="synth" data-code="78" data-source="24">n</li>
+        <li class="synth" data-code="77" data-source="25">m</li>
+      </ul>
+
+      <ul class="hidden">
+        <li class="effect" data-key="SPACE" data-code="32" data-source="11">SPACE</li>
+      </ul>
+
+    </div>
+
+    <footer>
+      <a href="http://www.weareimpero.com" target="_blank">WE ARE IMPERO</a>
+    </footer>
+
+    <script>
+      window.websocketURL = 'http://10.0.103.86:3007'
+    </script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src='audio.umd.js'></script>
+    <script src="sample-urls.js"></script>
+    <script src="pad.js"></script>
+  </body>
+</html>
