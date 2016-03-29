@@ -8,25 +8,11 @@ if [ "$APP_NAME" = "" ]; then
 fi
 
 if [ "$1" = "prd" ]; then
-  if [ "$DEIS_PRD_URL" = "" ]; then
-    echo "DEIS_PRD_URL must be set."
-    exit;
-  fi
-
   # Add git remote in production
   echo "Adding production remote"
-  git remote add deis-prd ssh://git@deis.$DEIS_PRD_URL:2222/$APP_NAME.git
+  git remote add dokku-prd dokku@dokku.prd.paas.impero.me:$APP_NAME
 else
-  if [ "$DEIS_STG_URL" = "" ]; then
-    echo "DEIS_STG_URL must be set."
-    exit;
-  fi
-
   # Add git remote in staging
   echo "Adding staging remote"
-  git remote add deis-stg ssh://git@deis.$DEIS_STG_URL:2222/$APP_NAME.git
+  git remote add dokku-stg dokku@dokku.stg.paas.impero.me:$APP_NAME
 fi
-
-# Logout
-echo "LOGOUT"
-deis logout

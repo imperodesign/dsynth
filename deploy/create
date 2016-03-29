@@ -7,42 +7,28 @@ if [ "$APP_NAME" = "" ]; then
   exit;
 fi
 
-# Eventually logout from a controller
-echo "LOGOUT"
-deis logout
-
-./login $1
-
 if [ "$1" = "prd" ]; then
   # Create app in production
   echo "[PRD] CREATE"
-  deis apps:create $APP_NAME --no-remote
+  DOKKU_HOST=prd.paas.impero.me $HOME/.dokku/contrib/dokku_client.sh apps:create $APP_NAME
 
   # Add git remote in production
   echo "[PRD] ADD GIT REMOTE"
-  git remote add deis-prd ssh://git@deis.$DEIS_PRD_URL:2222/$APP_NAME.git
+  git remote add dokku-prd dokku@dokku.prd.paas.impero.me:$APP_NAME
 
   # Setup env vars in production
   echo "[PRD] SET ENV VARS"
   echo "Missing implementation... Skip."
-
-  # Logout from prd controller
-  echo "[PRD] LOGOUT"
-  deis logout
 else
   # Create app in production
   echo "[STG] CREATE"
-  deis apps:create $APP_NAME --no-remote
+  DOKKU_HOST=stg.paas.impero.me $HOME/.dokku/contrib/dokku_client.sh apps:create $APP_NAME
 
   # Add git remote in production
   echo "[STG] ADD GIT REMOTE"
-  git remote add deis-stg ssh://git@deis.$DEIS_STG_URL:2222/$APP_NAME.git
+  git remote add dokku-stg dokku@dokku.prd.paas.impero.me:$APP_NAME
 
   # Setup env vars in production
   echo "[STG] SET ENV VARS"
   echo "Missing implementation... Skip."
-
-  # Logout from stg controller
-  echo "[STG] LOGOUT"
-  deis logout
 fi
