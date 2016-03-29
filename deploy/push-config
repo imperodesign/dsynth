@@ -13,7 +13,7 @@ if [ "$1" = "prd" ]; then
   while IFS='' read -r line || [[ -n "$line" ]]; do
     s="$line $s"
   done < ".env.production"
-  DOKKU_HOST=prd.paas.impero.me $HOME/.dokku/contrib/dokku_client.sh config:set $APP_NAME $s
+  DOKKU_HOST=dokku.prd.paas.impero.me $HOME/.dokku/contrib/dokku_client.sh config:set $APP_NAME $s
 else
   echo "Pushing configuration to staging"
   s=""

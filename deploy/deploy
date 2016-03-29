@@ -12,5 +12,5 @@ if [ "$1" = "prd" ]; then
   git push dokku-prd master:master
 else
   echo "Deploying to staging"
-  git push dokku-stg development:master
+  git push dokku-stg master:master
 fi

@@ -10,7 +10,7 @@ fi
 if [ "$1" = "prd" ]; then
   # Create app in production
   echo "[PRD] CREATE"
-  DOKKU_HOST=prd.paas.impero.me $HOME/.dokku/contrib/dokku_client.sh apps:create $APP_NAME
+  DOKKU_HOST=dokku.prd.paas.impero.me $HOME/.dokku/contrib/dokku_client.sh apps:create $APP_NAME
 
   # Add git remote in production
   echo "[PRD] ADD GIT REMOTE"
