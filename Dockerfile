@@ -14,7 +14,4 @@ COPY . /src
 # Change working directory
 WORKDIR /src
 
-# Expose port app is running on
-EXPOSE 3007
-
 CMD ["node", "server.js"]

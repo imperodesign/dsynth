@@ -16,14 +16,16 @@ app.get('/', (req, res, next) => {
   res.render('index')
 })
 
+const port = process.env.PORT || 3000
+
 app.get('/pad', (req, res, next) => {
   res.render('pad', {
-    websocketsURL: process.env.WEB_SOCKETS_URL || 'http://127.0.0.1:3007'
+    websocketsURL: process.env.WEB_SOCKETS_URL || 'http://127.0.0.1:' + port
   })
 })
 
-server.listen(3007, () => {
-  console.log('Server is listening on http://0.0.0.0:3007')
+server.listen(port, () => {
+  console.log('Server is listening on http://0.0.0.0:' + port)
 })
 
 io.on('connection', socket => {
